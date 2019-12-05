@@ -2,16 +2,14 @@ sudo pacman -S curl
 ssh-keygen -t rsa -b 4096 -C "andyferreira92@gmail.com"
 vim .ssh/id_rsa.pub
 gedit .ssh/id_rsa.pub
-sudo pacman -S git
-sudo pacman -S vim
+sudo pacman -S git vim python-dev python3 python-pip python3-dev python3-pip neovim pip3 python-pip3 postgresql trizen
 git config --global user.name "Anderson Ferreira"
-vim .gitconfig
 git clone https://github.com/ferreiraandy/.vim
 ln -s ~/.vim/.vimrc ~/.vimrc
-sudo pacman -S silversearcher-ag
-sudo pacman -S ack-grep
-sudo pacman -S neovim
-sudo pacman -S python-dev python-pip python3-dev python3-pip
+
+# sudo pacman -S silversearcher-ag ack-grep
+sudo pacman -S ripgrep
+
 mkdir .config
 mkdir .config/nvim
 
@@ -21,10 +19,6 @@ cat > ~/.config/nvim/init.vim <<EOL
   source ~/.vimrc
 EOL
 
-sudo pacman -S python3-pip
-sudo pacman -S python3
-sudo pacman -S pip3
-sudo pacman -S python-pip3
 source ~/.bashrc
 python3 -m pip install --user --upgrade pynvim
 source ~/.bashrc
@@ -37,7 +31,7 @@ asdf plugin-add ruby
 asdf install ruby 2.5.1
 asdf global ruby 2.5.1
 asdf install ruby 2.6.4
-sudo pacman -S postgresql
+
 sudo passwd postgres
 su postgres
 sudo systemctl postgresql restart
@@ -58,6 +52,7 @@ cd projects/vendamais-api/
 sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 sudo snap install slack --classic
+
 sudo pacman -S base-devel openssl-1.0 llvm
 asdf install ruby 2.5.1
 sudo pacman -Sy mysql
@@ -82,3 +77,4 @@ asdf reshim
 rspec -fp
 export PKG_CONFIG_PATH=/usr/lib/openssl-1.0/pkgconfig
 asdf install ruby 2.2.10
+sudo trizen -S click
