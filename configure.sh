@@ -72,7 +72,10 @@ asdf reshim
 
 export PKG_CONFIG_PATH=/usr/lib/openssl-1.0/pkgconfig
 asdf install ruby 2.2.10
-sudo trizen -S click
+
+asdf plugin-add rust
+asdf install rust 1.40.0
+trizen -S click
 
 echo "========================================================================="
 echo "                     PostgreSQL                                          "
