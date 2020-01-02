@@ -20,6 +20,9 @@ ssh-keygen -t rsa -b 4096 -C $loggin
 gedit .ssh/id_rsa.pub
 sudo pacman -Syu git vim python-dev python3 python-pip python3-dev python3-pip neovim pip3 python-pip3 postgresql trizen
 
+sudo pacman -S dconf gobject-introspection-runtime gsettings-desktop-schemas libcanberra startup-notification zenity libsm gnome-desktop upower libxkbcommon-x11 gnome-settings-daemon libgudev libinput pipewire xorg-server-xwayland mutter
+
+
 git config --global user.name $name
 
 echo "========================================================================="
@@ -85,9 +88,9 @@ sudo passwd postgres
 su postgres
 
 sudo systemctl postgresql restart
-sudo su - postgres -c "initdb --locale en_US.UTF-8 -D /var/lib/postgres/data'"
-sudo systemctl status postgresql
 sudo mkdir /var/lib/postgres/data
+sudo su - postgres -c "initdb --locale en_US.UTF-8 -D /var/lib/postgres/data"
+sudo systemctl status postgresql
 sudo -i -u postgres
 sudo systemctl start postgresql.service
 sudo systemctl status postgresql
